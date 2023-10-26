@@ -171,10 +171,8 @@ update cajas set valor = valor *0.80 where valor > (select avg(valor) from cajas
 delete from cajas where valor < 100;
 /* Me estába dando error al ponerlo directamente, asi que he buscado el error y me ha salido que haciendo un select por encima, se resuelve, no sé el porque, pero así si funciona */
 delete from cajas where almacen = (select num from (select codigo as num from almacenes a where capacidad < (select count(numreferencia) from cajas group by almacen having almacen = codigo)) as h);
-/* Ejercicio 4 */
 
-select * from peliculas;
-select * from salas;
+/* Ejercicio 4 */
 
 select nombre from peliculas;
 select distinct(calificacionedad) from peliculas where calificacionedad is not null;
